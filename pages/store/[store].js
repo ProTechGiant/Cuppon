@@ -28,7 +28,6 @@ const Store = ({ store }) => {
 							</div>
 							<div className="lg:w-3/12 w-full">
 								{store[0].companyId.info.map((item, i) => {
-									console.log("Item", item, "index", i);
 									return (
 										<Fragment key={i}>
 											<Shipping Item={item} />

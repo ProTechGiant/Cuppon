@@ -27,7 +27,7 @@ const discountCode = (props) => {
 		</>
 	);
 };
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 	const cpRes = await fetch(`${baseUrl}/api/addCuppon`);
 	const cpData = await cpRes.json();
 	console.log("cuppon", cpData);

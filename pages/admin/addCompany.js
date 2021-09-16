@@ -133,14 +133,12 @@ function AddCompany() {
 
 		return res2.url;
 	};
-
+	const Loader = ({ src }) => {
+		return `${media ? URL.createObjectURL(media) : ""}`;
+	};
 	return (
 		<div className="container my-12">
 			<div className="leading-loose">
-				{/* <form
-					className="p-10 bg-white rounded shadow-xl"
-					onSubmit={(e) => handleSubmit(e)} //
-				> */}
 				<div className="mt-2">
 					<div className="py-2 bg-white px-2">
 						<div className="max-w-md mx-auto rounded-lg overflow-hidden md:max-w-xl">
@@ -163,8 +161,9 @@ function AddCompany() {
 											onChange={(e) => setMedia(e.target.files[0])}
 										/>
 										<div className="file-field input-field mr-10">
-											<img
-												src={media ? URL.createObjectURL(media) : ""}
+											<Image
+												loader={Loader}
+												src={media ? URL.createObjectURL(media) : "default"}
 												className="responsive-img"
 												width={100}
 												height={100}

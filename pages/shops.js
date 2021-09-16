@@ -74,7 +74,7 @@ const Shops = ({ shop }) => {
 	);
 };
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 	const res = await fetch(`${baseUrl}/api/company`);
 	const data = await res.json();
 	return {

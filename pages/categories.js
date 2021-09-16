@@ -44,7 +44,7 @@ const categories = ({ category }) => {
 		</>
 	);
 };
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 	const res = await fetch(`${baseUrl}/api/getAllCategories`);
 	const data = await res.json();
 	console.log(data);
