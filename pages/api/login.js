@@ -1,10 +1,11 @@
 import initDB from "../../helper/initDB";
 import Admin from "../../models/adminSchema";
 import jwt from "jsonwebtoken";
-import { JWT_SECRET } from "../../helper/baseUrl";
+
 initDB();
 
 const login = async (req, res) => {
+	const { JWT_SECRET } = process.env;
 	const { email, password } = req.body;
 	console.log(email, password, req.body);
 	try {
