@@ -18,22 +18,22 @@ const Shops = ({ shop }) => {
 
 	return (
 		<>
-			<main className="container m-auto">
+			<main className="container m-auto my-8">
 				<h1 className="md:text-2xl text-lg font-bold dark:text-white mt-8">
 					<font style={{ verticalAlign: "inherit" }}>
 						<font style={{ verticalAlign: "inherit" }}>All shops</font>
 					</font>
 				</h1>
-				<div className="my-8 flex flex-row justify-between">
+				<div className="my-8 sm:flex justify-between sm:1/2">
 					{data.map((item, i) => (
-						<div key={i}>
-							<div className="row">
+						<div key={i} className="">
+							<div className="md:flex">
 								{sort === item[0] ? (
 									<>
 										<div className="flex flex-wrap">
-											<div className="col-md-1">
+											<div className="col-md-4">
 												<Link href={"/store/[store]"} as={`/store/${item}`}>
-													<a className="md:w-1/4 w-1/2 dark:text-white">
+													<a className="md:w-1/4 w-1/2 dark:text-white px-2">
 														<font style={{ verticalAlign: "inherit" }}>
 															<font style={{ verticalAlign: "inherit" }}>
 																{item}

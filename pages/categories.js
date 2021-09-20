@@ -20,13 +20,13 @@ const categories = ({ category }) => {
 			<div className="md:flex flex-wrap my-8">
 				{category.map((item, i) => (
 					<div key={i} className="md:w-1/6 mb-4 px-2">
-						<div className="bg-white hover:text-white hover:bg-green-700 dark:text-white dark:bg-gray-800 p-5 border dark:border-transparent rounded text-center cursor-pointer">
-							<div className="m-0">
-								<Link
-									href={"/category/[category]"}
-									as={`/category/${item.categoryName}`}
-								>
-									<a>
+						<Link
+							href={"/category/[category]"}
+							as={`/category/${item.categoryName}`}
+						>
+							<a>
+								<div className="bg-white hover:text-white hover:bg-green-700 dark:text-white dark:bg-gray-800 p-5 border dark:border-transparent rounded text-center cursor-pointer">
+									<div className="m-0">
 										<div className="h5 text-body fw-bold">
 											<font style={{ verticalAlign: "inherit" }}>
 												<font style={{ verticalAlign: "inherit" }}>
@@ -34,10 +34,10 @@ const categories = ({ category }) => {
 												</font>
 											</font>
 										</div>
-									</a>
-								</Link>
-							</div>
-						</div>
+									</div>
+								</div>
+							</a>
+						</Link>
 					</div>
 				))}
 			</div>
