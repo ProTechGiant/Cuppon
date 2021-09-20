@@ -75,7 +75,7 @@ const Shops = ({ shop }) => {
 };
 
 export async function getServerSideProps(context) {
-	const res = await fetch(`/api/company`);
+	const res = await fetch(`${baseUrl}/api/company`);
 	const data = await res.json();
 	console.log("Shops", data);
 	return {
