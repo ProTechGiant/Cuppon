@@ -77,6 +77,7 @@ const Shops = ({ shop }) => {
 export async function getServerSideProps(context) {
 	const res = await fetch(`${baseUrl}/api/company`);
 	const data = await res.json();
+	console.log("Shops", data);
 	return {
 		props: { shop: data }, // will be passed to the page component as props
 	};

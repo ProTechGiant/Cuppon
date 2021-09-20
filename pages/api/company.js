@@ -17,6 +17,7 @@ export default findCompany;
 const getAllCompany = async (req, res) => {
 	await handler(req, res);
 	await Company.find().then((company) => {
+		console.log("Company", company);
 		return res.status(200).json(company);
 	});
 };
