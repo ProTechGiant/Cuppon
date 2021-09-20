@@ -1,8 +1,11 @@
 import initDB from "../../helper/initDB";
 import Admin from "../../models/adminSchema";
+import handler from "./middleware";
 initDB();
 
 const signup = async (req, res) => {
+	await handler(req, res);
+
 	const { name, email, password } = req.body;
 	console.log("Data", name, email, password);
 	try {

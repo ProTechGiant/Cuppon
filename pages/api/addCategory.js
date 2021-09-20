@@ -2,6 +2,7 @@ import initDB from "../../helper/initDB";
 import Category from "../../models/categorySchema";
 import Company from "../../models/companySchema";
 import Cuppon from "../../models/cupponSchema";
+import handler from "./middleware";
 initDB();
 const findCategory = async (req, res) => {
 	switch (req.method) {
@@ -16,6 +17,7 @@ const findCategory = async (req, res) => {
 export default findCategory;
 
 const getAllCategory = async (req, res) => {
+	await handler(req, res);
 	const { category } = req.query;
 	console.log("category from server", category);
 	try {
@@ -37,6 +39,7 @@ const getAllCategory = async (req, res) => {
 };
 
 const saveCategory = async (req, res) => {
+	await handler(req, res);
 	const { categoryName } = req.body;
 	console.log({
 		categoryName,

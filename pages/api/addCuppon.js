@@ -1,6 +1,7 @@
 import initDB from "../../helper/initDB";
 import Cuppon from "../../models/cupponSchema";
 import Company from "../../models/companySchema";
+import handler from "./middleware";
 initDB();
 const findCuppon = async (req, res) => {
 	switch (req.method) {
@@ -15,6 +16,7 @@ const findCuppon = async (req, res) => {
 export default findCuppon;
 
 const getAllCuppon = async (req, res) => {
+	await handler(req, res);
 	Cuppon.find()
 		.populate("companyId", "-v")
 		.exec((err, data) => {
@@ -23,6 +25,7 @@ const getAllCuppon = async (req, res) => {
 };
 
 const saveCuppon = async (req, res) => {
+	await handler(req, res);
 	const { companyId, companyName, type, link, discountPercent, discountType } =
 		req.body;
 	// console.log({

@@ -1,8 +1,11 @@
 import initDB from "../../helper/initDB";
 import Company from "../../models/companySchema";
+import handler from "./middleware";
 initDB();
 
 const search = async (req, res) => {
+	await handler(req, res);
+
 	const { name } = req.query;
 	var regex = new RegExp(name, "i");
 	console.log("REQ", regex);

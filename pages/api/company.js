@@ -1,5 +1,6 @@
 import initDB from "../../helper/initDB";
 import Company from "../../models/companySchema";
+import handler from "./middleware";
 initDB();
 const findCompany = async (req, res) => {
 	switch (req.method) {
@@ -14,12 +15,14 @@ const findCompany = async (req, res) => {
 export default findCompany;
 
 const getAllCompany = async (req, res) => {
+	await handler(req, res);
 	await Company.find().then((company) => {
 		return res.status(200).json(company);
 	});
 };
 
 const saveCompany = async (req, res) => {
+	await handler(req, res);
 	const { name, url, media, categories, categoryId, info, date } = req.body;
 	if (!name || !url || !media || !categories || !date) {
 		return res.status(422).json({ error: "Please add all the fields" });

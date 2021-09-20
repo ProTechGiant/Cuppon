@@ -1,9 +1,11 @@
 import initDB from "../../helper/initDB";
 import Cuppon from "../../models/cupponSchema";
 import Company from "../../models/companySchema";
+import handler from "./middleware";
 initDB();
 
 const findCupponByName = async (req, res) => {
+	await handler(req, res);
 	const { store } = req.query;
 
 	const store1 = store.charAt(0).toUpperCase() + store.slice(1);
